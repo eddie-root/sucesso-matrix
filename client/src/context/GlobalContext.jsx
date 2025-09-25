@@ -7,12 +7,14 @@ const GlobalContext = createContext(null);
 
 export const GlobalContextProvider = ({children}) => {
 
-    
+    const currency = import.meta.env.VITE_CURRENCY;
 
     const navigate = useNavigate();
 
     const value = {
         navigate,
+        currency,
+        
     }
 
    return (
