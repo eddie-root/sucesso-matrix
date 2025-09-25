@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react'
-import AuthContext from '../context/AuthContext';
 import UIContext from '../context/UIContext';
 import GlobalContext from '../context/GlobalContext';
-import toast from 'react-hot-toast';
+
 
 
 const Login = () => {
-        const { setUser, axios } = useContext(AuthContext);
         const { setShowUserLogin } = useContext(UIContext);
         const { navigate } = useContext(GlobalContext);
 
@@ -16,21 +14,9 @@ const Login = () => {
         const [ password, setPassword ] = useState('');
 
         const onSubmitHandler = async (e)=> {
-                try {
-                      e.preventDefault();
-                      const { data } = await axios.post(`/api/user/${state}`, { name, email, password });
-                   
-                   if (data.success) {
-                      setShowUserLogin(true)
-                      setUser(data.user)
-                      navigate('/')
-                   } else {
-                      toast.error(data.message)  
-                   }
-                        
-                } catch (error) {
-                   toast.error(error.rsponse?.data?.message || 'Erro ao processar requisição');     
-                }
+            e.preventDefault();
+   
+                  
         }
         
         return (
