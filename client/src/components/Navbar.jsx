@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import GlobalContext from '../context/GlobalContext';
+import UIContext from '../context/UIContext';
 import { Link, NavLink } from 'react-router-dom';
 import { assets } from '../assets/assets';
 
 const Navbar = () => {
+    const { setShowUserLogin } = useContext(UIContext)
     const [ user, setUser ] = useState(true)
-    const [ setShowUserLogin ] = useState(false)
     const { navigate } = useContext(GlobalContext);
     const [ open, setOpen ] = useState(false)
 

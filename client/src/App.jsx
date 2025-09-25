@@ -1,4 +1,5 @@
 import React from 'react'
+import { Toaster } from 'react-hot-toast'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -12,7 +13,9 @@ const App = () => {
   return (
     <div className='min-h-screen text-deafault text-gray-700 bg-white'>
 
-      <Navbar /> 
+      <Navbar />
+
+      <Toaster />
       
       <div className='px-6 md:px-16 lg:px-24 xl:px-32'>
         <Routes>
