@@ -25,6 +25,17 @@ export const adminLogin = async (req, res)=> {
    }
 }
 
+// Admin isAuth : /api/admin/is-Auth
+export const isAdminAuth = async (req, res)=> {
+    try {
+        return res.json({ success: true })
+        
+    } catch (error) {
+        console.log(error.message)
+        res.json({ success: false, message: error.message });
+    }
+}
+
 
 // Logout Admin : /api/admin/logout
 export const adminLogout = async (req, res)=> {
