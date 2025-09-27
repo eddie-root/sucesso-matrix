@@ -1,16 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react'
 import AuthContext from '../../context/AuthContext';
 import GlobalContext from '../../context/GlobalContext';
+import toast from 'react-hot-toast';
 
 const AdminLogin = () => {
 
-  const { isAdmin } = useContext(AuthContext);
+  const { isAdmin, setIsAdmin, axios } = useContext(AuthContext);
   const { navigate } = useContext(GlobalContext)
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
 
   const onSubmitHandler = async (event)=> {
-    event.preventDefault();
+    try {
+      event.preventDefault();
+      const { data } = await axios.post('/api/admin/login', {email, password})
+      if (data.success) {
+        setIsAdmin(true)
+        navigate('/admin')
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
    
   }
 

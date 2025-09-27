@@ -24,7 +24,20 @@ export const AuthContextProvider = ({ children }) => {
         }
     }
 
+    // Fetch Admin
+    const fetchUser = async ()=> {
+        try {
+            const { data } = await axios.get('/api/user/is-auth')
+            setIsAdmin(data.success);
+
+        } catch (error) {
+            console.log(error)
+            setIsAdmin(false)
+        }
+    }
+
     useEffect(()=> {
+        fetchUser();
         fetchAdmin();
     }, []);
 
