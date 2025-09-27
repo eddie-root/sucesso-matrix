@@ -6,6 +6,7 @@ import connectDB from "./configs/db.js";
 import connectCloudinary from './configs/cloudinary.js';
 import userRouter from "./routers/userRoute.js";
 import adminRouter from "./routers/adminRoute.js";
+import cartRouter from "./routers/cartRouter.js";
 
 // app config
 const app = express();
@@ -25,6 +26,7 @@ app.use(cors({origin: allowedOrigins, credentials: true}));
 // api endpoints
 app.use('/api/user', userRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/cart', cartRouter);
 
 app.get('/', (req, res)=> res.send('API is Working'));
 
