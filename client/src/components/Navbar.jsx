@@ -1,19 +1,31 @@
 import React, { useContext, useState } from 'react'
-import GlobalContext from '../context/GlobalContext';
-import UIContext from '../context/UIContext';
 import { Link, NavLink } from 'react-router-dom';
 import { assets } from '../assets/assets';
+import GlobalContext from '../context/GlobalContext';
+import AuthContext from '../context/AuthContext';
+import UIContext from '../context/UIContext';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const { setShowUserLogin } = useContext(UIContext)
-    const [ user, setUser ] = useState(true)
+    const { user, setUser, axios } = useContext(AuthContext)
     const { navigate } = useContext(GlobalContext);
     const [ open, setOpen ] = useState(false)
 
-    const logout = async ()=> {        
-        setUser(null);
-        navigate('/');
-        
+    const logout = async ()=> {
+        try {
+            const { data } = await axios.get('/api/user/logout')
+            if (data.success) {
+                toast.error(data.message)
+                setUser(null);
+                navigate('/');
+                
+            } else {
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }        
     }
 
   return (

@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react'
 import UIContext from '../context/UIContext';
+import AuthContext from '../context/AuthContext';
 import GlobalContext from '../context/GlobalContext';
-
+import toast from 'react-hot-toast';
 
 
 const Login = () => {
         const { setShowUserLogin } = useContext(UIContext);
+        const { setUser, axios } = useContext(AuthContext)
         const { navigate } = useContext(GlobalContext);
 
         const [ state, setState ] = useState('login');
@@ -14,9 +16,20 @@ const Login = () => {
         const [ password, setPassword ] = useState('');
 
         const onSubmitHandler = async (e)=> {
-            e.preventDefault();
-   
-                  
+            try {
+                e.preventDefault();
+                const { data } = await axios.post(`/api/user/${state}`, { name, email, password });
+                // setShowLogin(false)
+                if (data.success) {
+                    navigate('/')
+                    setUser(data.user)
+                    setShowUserLogin(data.message)
+                } else {
+                    toast.error(data.message)
+                }
+            } catch (error) {
+                toast.error(error.response?.data?.message || 'Erro ao processar requisição');
+            }
         }
         
         return (
