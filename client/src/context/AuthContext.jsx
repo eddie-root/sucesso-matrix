@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
-import PropTypes from 'prop-types';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
@@ -24,7 +24,7 @@ export const AuthContextProvider = ({ children }) => {
         }
     }
 
-    // Fetch Admin
+    // Fetch User from backend
     const fetchUser = async ()=> {
         try {
             const { data } = await axios.get('/api/user/is-auth')
@@ -60,4 +60,4 @@ AuthContextProvider.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export default AuthContext
+export default AuthContext;

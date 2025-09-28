@@ -11,11 +11,11 @@ import { AuthContextProvider } from './context/AuthContext.jsx'
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <GlobalContextProvider>
-      <UIContextProvider>
-        <AuthContextProvider>
+      <AuthContextProvider>
+        <UIContextProvider>
             <App />
-        </AuthContextProvider>
-      </UIContextProvider>  
+        </UIContextProvider>  
+      </AuthContextProvider>
     </GlobalContextProvider>
   </BrowserRouter>,
 )

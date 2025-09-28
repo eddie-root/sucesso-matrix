@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import AuthContext from '../../context/AuthContext';
-import GlobalContext from '../../context/GlobalContext';
 import toast from 'react-hot-toast';
+import AuthContext from '../context/AuthContext';
+import GlobalContext from '../context/GlobalContext';
 
 const AdminLogin = () => {
 

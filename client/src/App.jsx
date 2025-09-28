@@ -5,6 +5,7 @@ import UIContext from './context/UIContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Login from './components/Login'
+import AdminLogin from './components/AdminLogin'
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
@@ -27,7 +28,8 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='contact' element={<Contact />} />
-          <Route path='/admin' element={<ProtectedRoute ></ProtectedRoute>}>
+          <Route path='/admin/login' element={<AdminLogin />} />
+          <Route path='/admin' element={<ProtectedRoute></ProtectedRoute>}>
 
           </Route>
         </Routes>

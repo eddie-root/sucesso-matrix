@@ -11,9 +11,12 @@ const ProtectedRoute = ({ children }) => {
         if (!isAdmin) {
             toast.error('Acesso negado. Você precisa ser um administrador.');
         }
-        return <Navigate to='/'/>;
     }, [isAdmin]);
 
+    if (!isAdmin) {
+        return <Navigate to='/'/>;
+    }
+    
   return children;
 };
 
@@ -21,4 +24,4 @@ ProtectedRoute.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export default ProtectedRoute
+export default ProtectedRoute;
