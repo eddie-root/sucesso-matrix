@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { GlobalContextProvider } from './context/GlobalContext.jsx'
 import { UIContextProvider } from './context/UIContext.jsx'
 import { AuthContextProvider } from './context/AuthContext.jsx'
+import { ProductContextProvider } from './context/ProductContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -13,7 +14,9 @@ createRoot(document.getElementById('root')).render(
     <GlobalContextProvider>
       <AuthContextProvider>
         <UIContextProvider>
+          <ProductContextProvider>
             <App />
+          </ProductContextProvider>
         </UIContextProvider>  
       </AuthContextProvider>
     </GlobalContextProvider>
