@@ -9,6 +9,7 @@ import AdminLogin from './components/AdminLogin'
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
+import AdminLayout from './pages/Admin/AdminLayout'
 
 
 const App = () => {
@@ -29,7 +30,7 @@ const App = () => {
           <Route path='/' element={<Home />}/>
           <Route path='contact' element={<Contact />} />
           <Route path='/admin/login' element={<AdminLogin />} />
-          <Route path='/admin' element={<ProtectedRoute></ProtectedRoute>}>
+          <Route path='/admin' element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
 
           </Route>
         </Routes>
