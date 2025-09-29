@@ -9,6 +9,7 @@ import AdminLogin from './components/AdminLogin'
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
+import Product from './pages/Product'
 import AdminLayout from './pages/admin/AdminLayout'
 import AddProduct from './pages/Admin/AddProduct'
 import ProductList from './pages/Admin/ProductList'
@@ -30,6 +31,8 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='contact' element={<Contact />} />
+          <Route path='products' element={<Product />} />
+          <Route path='products/:cod' element={<Product />} />
           <Route path='/admin/login' element={<AdminLogin />} />;
           <Route path='/admin' element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
             <Route index element={<AddProduct />} />;
