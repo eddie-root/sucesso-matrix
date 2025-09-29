@@ -13,6 +13,7 @@ import Product from './pages/Product'
 import AdminLayout from './pages/admin/AdminLayout'
 import AddProduct from './pages/Admin/AddProduct'
 import ProductList from './pages/Admin/ProductList'
+import ProductDetails from './pages/ProductDetails'
 
 const App = () => {
   
@@ -32,7 +33,7 @@ const App = () => {
           <Route path='/' element={<Home />}/>
           <Route path='contact' element={<Contact />} />
           <Route path='products' element={<Product />} />
-          <Route path='products/:cod' element={<Product />} />
+          <Route path='products/:cod' element={<ProductDetails />} />
           <Route path='/admin/login' element={<AdminLogin />} />;
           <Route path='/admin' element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
             <Route index element={<AddProduct />} />;
