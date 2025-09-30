@@ -7,6 +7,7 @@ import { GlobalContextProvider } from './context/GlobalContext.jsx'
 import { UIContextProvider } from './context/UIContext.jsx'
 import { AuthContextProvider } from './context/AuthContext.jsx'
 import { ProductContextProvider } from './context/ProductContext.jsx'
+import { CartContextProvider } from './context/CartContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -15,7 +16,9 @@ createRoot(document.getElementById('root')).render(
       <AuthContextProvider>
         <UIContextProvider>
           <ProductContextProvider>
+            <CartContextProvider>
             <App />
+            </CartContextProvider>
           </ProductContextProvider>
         </UIContextProvider>  
       </AuthContextProvider>

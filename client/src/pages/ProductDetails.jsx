@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ProductContext from '../context/ProductContext';
+import CartContext from '../context/CartContext';
 
 const ProductDetails = () => {
     const { cod } = useParams();
     const { products } = useContext(ProductContext);
-    // const { currency } = useContext();
+    const { currency } = useContext(CartContext);
 
     const [ productData, setProductData ] = useState();
     const [ image, setImage ] = useState();
