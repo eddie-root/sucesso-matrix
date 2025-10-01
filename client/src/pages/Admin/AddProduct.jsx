@@ -10,15 +10,13 @@ const AddProduct = () => {
         name: '',
         category: '',
         isNewProduct: false,
-        tecidos: [],
-        priceCents: {},
+        priceGroups: [{ name: '', prices: {} }], // <-- Changed state
         image: [],
         description: [''],
     });
 
-    const [selectedTecidos, setSelectedTecidos] = useState([]);
-    const [tecidosPrices, setTecidosPrices] = useState({});
-    const [loading, setLoading] = useState(false);
+    // List of available coverages
+    
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;

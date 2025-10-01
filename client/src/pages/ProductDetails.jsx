@@ -10,7 +10,8 @@ const ProductDetails = () => {
 
     const [ productData, setProductData ] = useState();
     const [ image, setImage ] = useState();
-    // const [ selectedPriceGroup, setSelectedPriceGroup ] = useState(null);
+    const [ tecidos, setTecidos ] = useState('');
+    const [ selectedPriceGroup, setSelectedPriceGroup ] = useState(null);
 
     const fetchProductData = async()=> {
         const product = products.find(item => item.cod === cod);
@@ -64,7 +65,7 @@ const ProductDetails = () => {
             </div>
 
             {/* -------------- New Price Group Selector  ------------ */}
-            {/* {productData.priceGroups && productData.productData.length > 1 && (
+            {productData.priceGroups && productData.productData.length > 1 && (
                 <div className='mt-6'>
                     <label>Selecione a Estrutura: </label>
                     <select 
@@ -78,11 +79,11 @@ const ProductDetails = () => {
                         ))}
                     </select>
                 </div>
-            )} */}
+            )}
 
             <div className='mt-4'>
                 <p className='text-2xl font-medium'>
-                    {'currency'} {}
+                    {currency} {}
                 </p>
             </div>
 
@@ -94,11 +95,19 @@ const ProductDetails = () => {
                 </ul>
 
             {/* -------------- Coverages Price Section ------------ */}
-            {'selectedPriceGroup' && (
+            {selectedPriceGroup && (
                 <div>
                     <p className='mt-6 text-gray-600 md:w-4/5'>Revestimentos Assentos: </p>
                     <div className='flex items-center flex-wrap gap-3 w-full mt-4 cursor-pointer'>
-
+                        {Object.keys(selectedPriceGroup.prices).map((tecido, index)=> (
+                            <p 
+                                className={`py-2 px-6 bg-primary/30 ${tecido === tecidos ? 'bg-primary/70' : ""}`}
+                                onClick={()=> setTecidos(tecido)}
+                                key={index}
+                            >
+                                {tecido}
+                            </p>
+                        ))}
                     </div>
                 </div>
             )}
