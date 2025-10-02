@@ -10,10 +10,13 @@ import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Product from './pages/Product'
+import ProductDetails from './pages/ProductDetails'
 import AdminLayout from './pages/admin/AdminLayout'
 import AddProduct from './pages/Admin/AddProduct'
 import ProductList from './pages/Admin/ProductList'
-import ProductDetails from './pages/ProductDetails'
+import AddClient from './pages/admin/AddClient'
+import ListClient from './pages/admin/ListClient'
+import ListOrder from './pages/admin/ListOrder'
 
 const App = () => {
   
@@ -38,6 +41,9 @@ const App = () => {
           <Route path='/admin' element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
             <Route index element={<AddProduct />} />;
             <Route path='product-list' element={<ProductList />} />;
+            <Route path='add-client' element={<AddClient />} />;
+            <Route path='list-Client' element={<ListClient />} />;
+            <Route path='list-orders' element={<ListOrder />} />;
 
           </Route>
         </Routes>

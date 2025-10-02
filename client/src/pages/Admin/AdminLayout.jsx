@@ -10,10 +10,10 @@ const AdminLayout = () => {
 
     const sidebarLinks = [
         { name: 'Add Product', path: '/admin', icon: assets.add_icon },
-        { name: 'Product List', path: '/admin/product-list', icon: assets.product_list_icon },
+        { name: 'Product List', path: '/admin/product-list', icon: assets.product_list },
         { name: 'Add Client', path: '/admin/add-client', icon: assets.add_icon },
-        { name: 'List Client', path: '/admin/list-client', icon: assets.product_list_icon },
-        { name: 'List Orders', path: '/admin/list-orders', icon: assets.product_list_icon },
+        { name: 'List Client', path: '/admin/list-client', icon: assets.product_list },
+        { name: 'List Orders', path: '/admin/list-orders', icon: assets.product_list },
     ]
 
     const logout = async ()=> {
