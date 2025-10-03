@@ -12,6 +12,8 @@ export const CartContextProvider = ({ children }) => {
     const { currency, navigate } = useContext(GlobalContext);
     const { axios } = useContext(AuthContext);
 
+    
+
     const contextValue = {
         products,
         currency,

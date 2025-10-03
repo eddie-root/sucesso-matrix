@@ -7,8 +7,8 @@ import UIContext from '../context/UIContext';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
-    const { setShowUserLogin } = useContext(UIContext)
     const { user, setUser, axios } = useContext(AuthContext)
+    const { setShowUserLogin } = useContext(UIContext)
     const { navigate } = useContext(GlobalContext);
     const [ open, setOpen ] = useState(false)
 

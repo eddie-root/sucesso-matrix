@@ -9,7 +9,7 @@ const AuthContext = createContext(null);
 
 export const AuthContextProvider = ({ children }) => {
 
-    const [ user, setUser ] = useState(null);
+    const [ user, setUser ] = useState(true);
     const [ isAdmin, setIsAdmin ] = useState(false);
 
     // Fetch Admin
